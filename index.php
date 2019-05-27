@@ -16,9 +16,14 @@
     $user = "hani";
     $pass = "àç_è-('\"é&Bismi";
     $db = "hani-dicoding-sql";
+    $connectionOptions = array(
+        "Database" => "hani-dicoding-sql", // update me
+        "Uid" => "hani", // update me
+        "PWD" => "àç_è-('\"é&Bismi" // update me
+    );
     try {
-        $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
-        $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+        $conn = sqlsrv_connect($host, $connectionOptions);
+        //$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     } catch(Exception $e) {
         echo "Failed: " . $e;
     }/*
