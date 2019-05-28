@@ -24,6 +24,8 @@
         $sql_select = "SELECT * FROM PHONEBOOK";    
         $stmt = $conn->query($sql_select);  
         $book = $stmt->fetchAll();  
+        echo gettype($book);
+        echo count($book);
         if(count($book) ==  0) {  
             echo "HALO <br/>";
             echo count($book);
