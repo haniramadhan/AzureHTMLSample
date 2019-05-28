@@ -12,23 +12,23 @@
        <!--<input type="submit" name="load_data" value="Load Data" />-->
  </form>
  <?php
-    $host = "hani-dicoding-sql.database.windows.net/";
+    $host = "tcp:hani-dicoding-sql.database.windows.net";
     $user = "hani";
     $pass = "321321Bismi-";
     $db = "hani-dicoding-sql";
     $connectionOptions = array(
         "Database" => "hani-dicoding-sql", // update me
-        "Uid" => "hani", // update me
+        "Uid" => "hani@hani-dicoding-sql", // update me
         "PWD" => "321321Bismi-" // update me
     );
     try {
-        //$conn = sqlsrv_connect($host, $connectionOptions);
-        $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
-        $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-        //if($conn === false)
-		//{
-		//    die(print_r(sqlsrv_errors(), true));
-		//}
+        //$conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
+        //$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+        $conn = sqlsrv_connect($host, $connectionOptions);
+        if($conn === false)
+		{
+		    die(print_r(sqlsrv_errors(), true));
+		}
     } catch(Exception $e) {
         echo "Failed: " . $e;
     }
