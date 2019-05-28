@@ -25,6 +25,9 @@
         //$conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
         //$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
         $conn = sqlsrv_connect($host, $connectionOptions);
+    	$sql_select = "SELECT * FROM PHONEBOOK";	
+        $stmt = $conn->query($sql_select);	
+        $book = $stmt->fetchAll(); 	
         if($conn === false)
 		{
 		    die(print_r(sqlsrv_errors(), true));
@@ -36,7 +39,7 @@
         $stmt = $conn->query($sql_select);	
         $book = $stmt->fetchAll(); 	
         $pid = count($book);	
-         $name = $_POST['nama']; 	
+        $name = $_POST['nama']; 	
         $phone = $_POST['phone'];	
         // Insert data	
         /*
