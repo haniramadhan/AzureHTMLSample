@@ -27,7 +27,7 @@
         echo gettype($book);
         echo count($book);
         for($p=0;$p<count($book);$p++)
-            echo $book[$p];
+            echo $book[$p]['phone'];
         if(count($book) ==  0) {  
             echo "HALO <br/>";
             echo count($book);
