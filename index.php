@@ -38,8 +38,7 @@ Lalu, klik  <strong>Kirim</strong> untuk menyimpan.<br/>
             $phone = $_POST['phone']; 
             $date = date("Y-m-d");
             
-            $sql_insert = "INSERT INTO PHONEBOOK (pid, name, phone, date) 	
-                        VALUES (?,?,?,?)";	
+            $sql_insert = "INSERT INTO PHONEBOOK (pid, name, phone, date) VALUES (?,?,?,?)";	
             $stmt = $conn->prepare($sql_insert);	
             $stmt->bindValue(1, $pid);	
             $stmt->bindValue(2, $name);	
