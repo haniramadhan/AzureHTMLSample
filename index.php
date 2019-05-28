@@ -44,6 +44,7 @@ Lalu, klik  <strong>Kirim</strong> untuk menyimpan.<br/>
             $stmt->bindValue(1, $pid);	
             $stmt->bindValue(2, $name);	
             $stmt->bindValue(3, $phone);	
+            $stmt->bindValue(4, $date);    
             $stmt->execute();	
 
             echo "Sukses tersimpan!";
