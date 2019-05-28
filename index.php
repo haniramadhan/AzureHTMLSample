@@ -32,17 +32,13 @@
             echo "<tr><th>Nama</th>";   
             echo "<th>No. Telepon</th></tr>";   
             for($p=0;$p<count($book);$p++){
-                    echo "<tr><td>".$book[$p]['pid']."</td>";
-                    echo "<td>".$book[$p]['name']."</td>";
+                    echo "<tr><td>".$book[$p]['name']."</td>";
                     echo "<td>".$book[$p]['phone']."</td></tr>";
                 }
             echo "</table>";    
         } else {    
-            echo "<h3>No one is currently registered.</h3>";    
+            echo "<h3>Tidak ada kontak terdaftar.</h3>";    
         }     
-        $pid = count($book);    
-        $name = $_POST['nama'];     
-        $phone = $_POST['phone']; 
     } catch(Exception $e) {
         echo "Failed: " . $e;
     }
@@ -50,6 +46,12 @@
     if (isset($_POST['submit'])) {
         try {	
             // Insert data	
+            $sql_select = "SELECT * FROM PHONEBOOK";    
+            $stmt = $conn->query($sql_select);  
+            $book = $stmt->fetchAll();  
+            $pid = count($book);    
+            $name = $_POST['nama'];     
+            $phone = $_POST['phone']; 
             
             $sql_insert = "INSERT INTO PHONEBOOK (pid, name, phone) 	
                         VALUES (?,?,?)";	
@@ -59,7 +61,24 @@
             $stmt->bindValue(3, $phone);	
             $stmt->execute();	
             
-            
+            $sql_select = "SELECT * FROM PHONEBOOK";    
+            $stmt = $conn->query($sql_select);  
+            $book = $stmt->fetchAll();  
+            if(count($book) > 0) {  
+            echo "HALO <br/>";
+            echo count($book);
+            echo "<h2>Kontak Anda:</h2>";   
+            echo "<table>"; 
+            echo "<tr><th>Nama</th>";   
+            echo "<th>No. Telepon</th></tr>";   
+            for($p=0;$p<count($book);$p++){
+                    echo "<tr><td>".$book[$p]['name']."</td>";
+                    echo "<td>".$book[$p]['phone']."</td></tr>";
+                }
+            echo "</table>";    
+        } else {    
+            echo "<h3>Tidak ada kontak terdaftar.</h3>";    
+        }     
          } catch(Exception $e) {	
             echo "Failed: " . $e;	
         }
