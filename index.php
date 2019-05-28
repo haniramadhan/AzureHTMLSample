@@ -24,6 +24,10 @@
     try {
         $conn = sqlsrv_connect($host, $connectionOptions);
         //$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+        if($conn === false)
+		{
+		    die(print_r(sqlsrv_errors(), true));
+		}
     } catch(Exception $e) {
         echo "Failed: " . $e;
     }
