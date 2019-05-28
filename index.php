@@ -36,9 +36,10 @@ Lalu, klik  <strong>Kirim</strong> untuk menyimpan.<br/>
             $pid = count($book);    
             $name = $_POST['name'];     
             $phone = $_POST['phone']; 
+            $date = date("Y-m-d");
             
-            $sql_insert = "INSERT INTO PHONEBOOK (pid, name, phone) 	
-                        VALUES (?,?,?)";	
+            $sql_insert = "INSERT INTO PHONEBOOK (pid, name, phone, date) 	
+                        VALUES (?,?,?,?)";	
             $stmt = $conn->prepare($sql_insert);	
             $stmt->bindValue(1, $pid);	
             $stmt->bindValue(2, $name);	
@@ -60,10 +61,12 @@ Lalu, klik  <strong>Kirim</strong> untuk menyimpan.<br/>
         echo "<h2>Kontak Anda:</h2>";   
         echo "<table>"; 
         echo "<tr><th>Nama</th>";   
-        echo "<th>No. Telepon</th></tr>";   
+        echo "<th>No. Telepon</th>";   
+        echo "<th>Tanggal Penambahan</th></tr>";  
         for($p=0;$p<count($book);$p++){
                 echo "<tr><td>".$book[$p]['name']."</td>";
-                echo "<td>".$book[$p]['phone']."</td></tr>";
+                echo "<td>".$book[$p]['phone']."</td>";
+                echo "<td>".$book[$p]['date']."</td></tr>";
             }
         echo "</table>";    
 
