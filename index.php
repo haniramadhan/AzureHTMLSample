@@ -14,12 +14,12 @@
  <?php
     $host = "hani-dicoding-sql.database.windows.net/";
     $user = "hani";
-    $pass = "àç_è-('\"é&Bismi";
+    $pass = "321321Bismi-";
     $db = "hani-dicoding-sql";
     $connectionOptions = array(
         "Database" => "hani-dicoding-sql", // update me
         "Uid" => "hani", // update me
-        "PWD" => "àç_è-('\"é&Bismi" // update me
+        "PWD" => "321321Bismi-" // update me
     );
     try {
         //$conn = sqlsrv_connect($host, $connectionOptions);
