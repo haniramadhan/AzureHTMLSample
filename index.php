@@ -30,11 +30,9 @@
             echo "<tr><th>Nama</th>";   
             echo "<th>No. Telepon</th></tr>";   
             echo "HALO <br/>";
-            foreach($contact as $book) {    
-                echo "HALO <br/>";
-                echo "<tr><td>".$contact['name']."</td>";   
-                echo "<td>".$contact['phone']."</td></tr>"; 
-            }   
+            for ($iContact = 0; $iContact <count($book); $iContact++) {
+                echo "The number is: $iContact <br>";
+            } 
             echo "</table>";    
         } else {    
             echo "<h3>No one is currently registered.</h3>";    
