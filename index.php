@@ -35,6 +35,7 @@
             echo "<tr><th>Nama</th>";   
             echo "<th>No. Telepon</th></tr>";   
             foreach($contact as $book) {    
+                echo "HALO <br/>";
                 echo "<tr><td>".$contact['name']."</td>";   
                 echo "<td>".$contact['phone']."</td></tr>"; 
             }   
