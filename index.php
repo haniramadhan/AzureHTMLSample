@@ -4,13 +4,13 @@
 </head>
 <body>
 <h1>Halo</h1>
-<p>Masukkan nama dan nomor telepon Saudara untuk mengisi buku telepon saya! Lalu, klik  <strong>Kirim</strong> untuk menyimpan.</p>
+<p>Masukkan nama dan nomor telepon Saudara untuk mengisi buku telepon saya! </p> <br/>
+Lalu, klik  <strong>Kirim</strong> untuk menyimpan.
 <form method="post" action="index.php">
        Nama <input type="text" name="name" id="name"/></br></br>
        No. Ponsel <input type="text" name="phone" id="phone"/></br></br>
        <input type="submit" name="submit" value="Kirim" />
        <input type="submit" name="show" value="Lihat Buku Telepon" />
-       <!--<input type="submit" name="load_data" value="Load Data" />-->
  </form>
  <?php
     $host = "tcp:hani-dicoding-sql.database.windows.net";
