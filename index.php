@@ -9,6 +9,7 @@
        Nama <input type="text" name="name" id="name"/></br></br>
        No. Ponsel <input type="text" name="phone" id="phone"/></br></br>
        <input type="submit" name="submit" value="Kirim" />
+       <input type="submit" name="" value="Lihat Buku Telepon" />
        <!--<input type="submit" name="load_data" value="Load Data" />-->
  </form>
  <?php
@@ -19,26 +20,6 @@
     try {
         $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
         $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-
-
-        $sql_select = "SELECT * FROM PHONEBOOK";    
-        $stmt = $conn->query($sql_select);  
-        $book = $stmt->fetchAll();  
-        if(count($book) > 0) {  
-            echo "HALO <br/>";
-            echo count($book);
-            echo "<h2>Kontak Anda:</h2>";   
-            echo "<table>"; 
-            echo "<tr><th>Nama</th>";   
-            echo "<th>No. Telepon</th></tr>";   
-            for($p=0;$p<count($book);$p++){
-                    echo "<tr><td>".$book[$p]['name']."</td>";
-                    echo "<td>".$book[$p]['phone']."</td></tr>";
-                }
-            echo "</table>";    
-        } else {    
-            echo "<h3>Tidak ada kontak terdaftar.</h3>";    
-        }     
     } catch(Exception $e) {
         echo "Failed: " . $e;
     }
@@ -61,27 +42,31 @@
             $stmt->bindValue(3, $phone);	
             $stmt->execute();	
             
-            $sql_select = "SELECT * FROM PHONEBOOK";    
-            $stmt = $conn->query($sql_select);  
-            $book = $stmt->fetchAll();  
-            if(count($book) > 0) {  
-            echo "HALO <br/>";
-            echo count($book);
-            echo "<h2>Kontak Anda:</h2>";   
-            echo "<table>"; 
-            echo "<tr><th>Nama</th>";   
-            echo "<th>No. Telepon</th></tr>";   
-            for($p=0;$p<count($book);$p++){
-                    echo "<tr><td>".$book[$p]['name']."</td>";
-                    echo "<td>".$book[$p]['phone']."</td></tr>";
-                }
-            echo "</table>";    
-        } else {    
-            echo "<h3>Tidak ada kontak terdaftar.</h3>";    
-        }     
          } catch(Exception $e) {	
             echo "Failed: " . $e;	
         }
+    }
+    else if (isset($_POST['show'])) {
+
+        $sql_select = "SELECT * FROM PHONEBOOK";    
+        $stmt = $conn->query($sql_select);  
+        $book = $stmt->fetchAll();  
+        if(count($book) > 0) {  
+        echo "HALO <br/>";
+        echo count($book);
+        echo "<h2>Kontak Anda:</h2>";   
+        echo "<table>"; 
+        echo "<tr><th>Nama</th>";   
+        echo "<th>No. Telepon</th></tr>";   
+        for($p=0;$p<count($book);$p++){
+                echo "<tr><td>".$book[$p]['name']."</td>";
+                echo "<td>".$book[$p]['phone']."</td></tr>";
+            }
+        echo "</table>";    
+
+        } else {    
+            echo "<h3>Tidak ada kontak terdaftar.</h3>";    
+        }     
     }
 
 
