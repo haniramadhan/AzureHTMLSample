@@ -13,7 +13,7 @@
  </form>
  <?php
     $host = "tcp:hani-dicoding-sql.database.windows.net";
-    $user = "hani";
+    $user = "hani@hani-dicoding-sql";
     $pass = "321321Bismi-";
     $db = "hani-dicoding-sql";
     $connectionOptions = array(
@@ -24,11 +24,11 @@
     try {
         $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
         $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-        $conn = sqlsrv_connect($host, $connectionOptions);
-        if($conn === false)
-		{
-		    die(print_r(sqlsrv_errors(), true));
-		}
+  //       $conn = sqlsrv_connect($host, $connectionOptions);
+  //       if($conn === false)
+		// {
+		//     die(print_r(sqlsrv_errors(), true));
+		// }
     } catch(Exception $e) {
         echo "Failed: " . $e;
     } try {	
