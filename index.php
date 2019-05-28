@@ -25,11 +25,12 @@
         $stmt = $conn->query($sql_select);  
         $book = $stmt->fetchAll();  
         if(count($book) > 0) {  
+            echo "HALO <br/>";
+            echo count($book);
             echo "<h2>Kontak Anda:</h2>";   
             echo "<table>"; 
             echo "<tr><th>Nama</th>";   
             echo "<th>No. Telepon</th></tr>";   
-            echo "HALO <br/>";
             for ($iContact = 0; $iContact <count($book); $iContact++) {
                 echo "The number is: $iContact <br>";
             } 
