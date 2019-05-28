@@ -27,9 +27,7 @@
         echo gettype($book);
         echo count($book);
         for($p=0;$p<count($book);$p++)
-            echo $p;
-        foreach($contact as $book)
-            echo "Halo";
+            echo $book[$p];
         if(count($book) ==  0) {  
             echo "HALO <br/>";
             echo count($book);
