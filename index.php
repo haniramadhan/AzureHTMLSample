@@ -50,7 +50,7 @@
             $stmt = $conn->query($sql_select);  
             $book = $stmt->fetchAll();  
             $pid = count($book);    
-            $name = $_POST['nama'];     
+            $name = $_POST['name'];     
             $phone = $_POST['phone']; 
             
             $sql_insert = "INSERT INTO PHONEBOOK (pid, name, phone) 	
