@@ -16,11 +16,6 @@
     $user = "hani@hani-dicoding-sql";
     $pass = "321321Bismi-";
     $db = "hani-dicoding-sql";
-    $connectionOptions = array(
-        "Database" => "hani-dicoding-sql", // update me
-        "Uid" => "hani@hani-dicoding-sql", // update me
-        "PWD" => "321321Bismi-" // update me
-    );
     try {
         $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
         $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
