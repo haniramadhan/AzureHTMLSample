@@ -9,7 +9,7 @@
        Nama <input type="text" name="name" id="name"/></br></br>
        No. Ponsel <input type="text" name="phone" id="phone"/></br></br>
        <input type="submit" name="submit" value="Kirim" />
-       <input type="submit" name="" value="Lihat Buku Telepon" />
+       <input type="submit" name="show" value="Lihat Buku Telepon" />
        <!--<input type="submit" name="load_data" value="Load Data" />-->
  </form>
  <?php
