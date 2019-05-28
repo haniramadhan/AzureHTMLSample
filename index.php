@@ -41,6 +41,8 @@
             $stmt->bindValue(2, $name);	
             $stmt->bindValue(3, $phone);	
             $stmt->execute();	
+
+            echo "Sukses tersimpan!";
             
          } catch(Exception $e) {	
             echo "Failed: " . $e;	
@@ -51,9 +53,7 @@
         $sql_select = "SELECT * FROM PHONEBOOK";    
         $stmt = $conn->query($sql_select);  
         $book = $stmt->fetchAll();  
-        if(count($book) > 0) {  
-        echo "HALO <br/>";
-        echo count($book);
+        if(count($book) > 0) {
         echo "<h2>Kontak Anda:</h2>";   
         echo "<table>"; 
         echo "<tr><th>Nama</th>";   
