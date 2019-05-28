@@ -5,12 +5,15 @@
 <body>
 <h1>Halo</h1>
 <p>Masukkan nama dan nomor telepon Saudara untuk mengisi buku telepon saya! </p> <br/>
-Lalu, klik  <strong>Kirim</strong> untuk menyimpan.
+Lalu, klik  <strong>Kirim</strong> untuk menyimpan.<br/>
 <form method="post" action="index.php">
-       Nama <input type="text" name="name" id="name"/></br></br>
-       No. Ponsel <input type="text" name="phone" id="phone"/></br></br>
-       <input type="submit" name="submit" value="Kirim" />
-       <input type="submit" name="show" value="Lihat Buku Telepon" />
+    <table>
+        <tr><td>Nama</td> <td><input type="text" name="name" id="name"/></td></tr>
+        <tr><td>No. Ponsel </td> <td><input type="text" name="phone" id="phone"/></td></tr>
+    </table>
+    </br></br>
+    <input type="submit" name="submit" value="Kirim" />
+    <input type="submit" name="show" value="Lihat Buku Telepon" />
  </form>
  <?php
     $host = "tcp:hani-dicoding-sql.database.windows.net";
