@@ -22,12 +22,9 @@
         "PWD" => "321321Bismi-" // update me
     );
     try {
-        //$conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
-        //$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+        $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
+        $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
         $conn = sqlsrv_connect($host, $connectionOptions);
-    	$sql_select = "SELECT * FROM PHONEBOOK";	
-        $stmt = $conn->query($sql_select);	
-        $book = $stmt->fetchAll(); 	
         if($conn === false)
 		{
 		    die(print_r(sqlsrv_errors(), true));
