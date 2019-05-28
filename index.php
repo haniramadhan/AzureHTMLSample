@@ -26,7 +26,6 @@
         $book = $stmt->fetchAll();  
         echo gettype($book);
         echo count($book);
-        for($p=0;$p<count($book);$p++)
             echo $book[$p]['phone'];
         if(count($book) ==  0) {  
             echo "HALO <br/>";
@@ -35,9 +34,11 @@
             echo "<table>"; 
             echo "<tr><th>Nama</th>";   
             echo "<th>No. Telepon</th></tr>";   
-            for ($iContact = 0; $iContact <count($book); $iContact++) {
-                echo "The number is: $iContact <br>";
-            } 
+            for($p=0;$p<count($book);$p++){
+                    echo "<tr><td>".$book[$p]['pid']."</td>";
+                    echo "<td>".$book[$p]['name']."</td>";
+                    echo "<td>".$book[$p]['phone']."</td></tr>";
+                }
             echo "</table>";    
         } else {    
             echo "<h3>No one is currently registered.</h3>";    
