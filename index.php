@@ -24,10 +24,7 @@
         $sql_select = "SELECT * FROM PHONEBOOK";    
         $stmt = $conn->query($sql_select);  
         $book = $stmt->fetchAll();  
-        echo gettype($book);
-        echo count($book);
-            echo $book[$p]['phone'];
-        if(count($book) ==  0) {  
+        if(count($book) > 0) {  
             echo "HALO <br/>";
             echo count($book);
             echo "<h2>Kontak Anda:</h2>";   
@@ -67,6 +64,7 @@
             echo "Failed: " . $e;	
         }
     }
+
 
  ?>
  </body>
